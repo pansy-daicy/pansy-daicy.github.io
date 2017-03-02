@@ -162,10 +162,10 @@
 </nav>
       <div class="body-wrap">
   
-    <article id="post-xlei" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-clearfloat" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/02/xlei/" class="article-date">
+      <a href="/2017/03/02/clearfloat/" class="article-date">
   	<time datetime="2017-03-01T17:05:27.690Z" itemprop="datePublished">2017-03-02</time>
 </a>
     </div>
@@ -177,7 +177,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="心好累-2-50-师傅我要吃滴"><a href="#心好累-2-50-师傅我要吃滴" class="headerlink" title="心好累 2:50  师傅我要吃滴"></a>心好累 2:50  师傅我要吃滴</h3>
+        <h3 id="清楚浮动的几种方式"><a href="#清楚浮动的几种方式" class="headerlink" title="清楚浮动的几种方式"></a>清楚浮动的几种方式</h3><ul>
+<li>1.父级div定义height<ul>
+<li>原理：父级div手动定义height,就解决了父级div无法自动获取到高度的问题。简单、代码少、容易掌握,但只适合高度固定的布局。</li>
+</ul>
+</li>
+<li>2.结尾处加空div标签 clear:both<ul>
+<li>原理：在浮动元素后面添加一个空div兄弟元素，利用css提高的clear:both清除浮动，让父级div能自动获取到高度，如果页面浮动布局多，就要增加很多空div,让人感觉很不好。</li>
+</ul>
+</li>
+<li>3.父级div定义伪类：after和zoom<br>/<em>清除浮动代码</em>/<br>.clearfix:after{<br> content:””;<br> display:block;<br> visibility:hidden;<br> height:0;<br> line-height:0;<br> clear:both;<br>}<br>.clearfix{<br> zoom:1;<br>}<ul>
+<li>原理：IE8以上和非IE浏览器才支持：after,原理和方法和2有点类似，zoom(IE专有属性)可解决ie6,ie7浮动问题，推荐使用，建议定义公共类，以减少css代码</li>
+<li>4.父级div定义 overflow:hidden<br>超出盒子的部分会被影藏，不建议使用</li>
+<li>5.双伪元素法：<br>.clearfix: before, .clearfix: after {<br>content:””;<br>display:block;<br>clear:both;<br>}<br>.clearfix {<br>zoom:1;<br>}</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
     
